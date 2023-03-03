@@ -520,6 +520,9 @@ class AcousticModel(torch.nn.Module):
 
         encoder_outputs_res = encoder_outputs
 
+        self.pitch_mean = None
+        self.pitch_std = None
+        
         pitch_emb_pred, pitch_pred = self.pitch_adaptor.get_pitch_embedding(
             x=encoder_outputs,
             mask=src_mask,
